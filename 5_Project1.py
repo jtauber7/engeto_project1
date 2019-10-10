@@ -48,10 +48,9 @@ if userpass[username] != passw:
 else:
     # Text choosing
     choose = int(input("We have 3 texts to be analyzed.\n"
-                   "Enter a number btw. 1 and 3 to select: "))
+                       "Enter a number btw. 1 and 3 to select: "))
     if choose not in (1, 2, 3):
         print("Wrong selection of the text, script will stop.")
-
     else:
         print("-" * 40)
         textlist = TEXTS[choose-1].split()
@@ -85,7 +84,7 @@ else:
         print("-" * 40)
 
         # bar chart frequencies and delete punctuations
-        punctuations = """."!',"""  # remove punctuations and save as new string
+        punctuations = """."!',"""  # remove punctuations and save as a new string
         index = 0
         textstr_nopunct = ""
         while index < len(textstr):

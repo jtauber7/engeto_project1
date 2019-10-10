@@ -91,23 +91,21 @@ print("-" * 40)
 
 # bar chart frequencies and delete punctuations
 punctuations = """."!',"""  # remove punctuations and save as new string
-index = 0
 textstr_nopunct = ""
-while index < len(textstr):
-    if textstr[index] not in punctuations:
-        textstr_nopunct = textstr_nopunct + textstr[index]
-    index += 1
+for i in textstr:
+    if i not in punctuations:
+        textstr_nopunct = textstr_nopunct + i
 
-barchart = {}  # save selected text with no punctuations as a list and count into dict
-index = 0
+barchart = {}  # save selected text without punctuations as a list and count into dict
 textlist = textstr_nopunct.split()
-while index < len(textlist):
-    barchart[len(textlist[index])] = barchart.get(len(textlist[index]), 0) + 1
-    index += 1
+for i in textlist:
+    barchart[len(i)] = barchart.get(len(i), 0) + 1
 
 index = 1  # print a bar chart with frequencies
 while index <= max(barchart):
-    if index in barchart.keys():
+    if index in barchart.keys() and index < 10:  # to align first asterisk in barchart
+        print("", index, "*" * barchart[index], barchart[index])
+    elif index in barchart.keys():
         print(index, "*" * barchart[index], barchart[index])
     index += 1
 print("-" * 40)
